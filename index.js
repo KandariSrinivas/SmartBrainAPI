@@ -36,21 +36,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-  app.post('/', (req, res) => {
-    const email = "srinivaskandari97@gmail.com"
-    knex('login').where({email}).select('hash').then(data => {
-      console.log(data, 'srinivaskandari97@gmail.com');
-    }).then(() => {
-        knex('login').where('email', '=', 'srinivaskandari97@gmam').select('hash').then(data => {
-        console.log(data,'srinivaskandari97@gmam' );
-      }).then(() => {
-          knex('login').where('email', '=', 'srinivaskandari97@gmail.com').select('hash').then(data => {
-          console.log(data, 'srinivaskandari97@gmail.com');
-          res.send('HI');
-        });
-       });
-
-     });
+  app.get('/', (req, res) => {
+    res.json("It's Working");
   });
 
 
